@@ -31,9 +31,7 @@ class PrimaryLayout extends React.Component {
   render() {
     return (
       <div className="primary-layout">
-        <header>
-          Our React Router 4 App
-        </header>
+        <header></header>
         <main>
           <div>{ this.state.initDone ? this.props.children : <div>加载中...</div>}</div>
         </main>

@@ -10,11 +10,13 @@ export class RouterMap extends React.Component {
     return (
       <Router>
         <div>
+          { /*
           <ul>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/list">List</Link></li>
           </ul>
           <hr/>
+          */ }
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/list" component={List} />

@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import './demo.styl';
 import ReduxDemo from './containers/ReduxDemo';
 import { RouterMap } from './router/routerMap';
 import { Provider } from 'react-redux';
 import configStore from './store/configStore';
 import PrimaryLayout from './pages/Layout/PrimaryLayout';
+
+import './static/styl/index.styl';
 
 const store = configStore();
 
@@ -18,9 +18,9 @@ fetch('/api/homead')
 
 ReactDOM.render(<Provider store={store}>
   <div>
-    <ReduxDemo></ReduxDemo>
     <PrimaryLayout>
       <RouterMap />
     </PrimaryLayout>
+    { /* <ReduxDemo></ReduxDemo> */ }
   </div>
 </Provider>, document.getElementById('root'));
