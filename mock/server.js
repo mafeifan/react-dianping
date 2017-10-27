@@ -3,6 +3,9 @@ var Router = require('koa-router');
 
 var app = new Koa();
 var router = new Router();
+var cors = require('koa-cors');
+
+app.use(cors());
 
 router.get('/', function (ctx, next) {
   console.log('say');

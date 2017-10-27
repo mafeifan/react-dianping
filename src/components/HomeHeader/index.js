@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import SearchInput from '../SearchInput'
 
+import './style.styl'
+
 export default class HomeHeader extends React.Component {
   constructor() {
     super()
@@ -10,7 +12,7 @@ export default class HomeHeader extends React.Component {
     }
   }
   enterHandle(value) {
-    this.props.history.push('/search/all/' + '/search/all/')
+    this.props.history.push('/search/all/' + encodeURIComponent(value))
   }
   render() {
     return (

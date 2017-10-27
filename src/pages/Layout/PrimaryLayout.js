@@ -13,7 +13,6 @@ class PrimaryLayout extends React.Component {
     }
   }
   componentDidMount() {
-
     let cityName = localStore.get('cur_city')
     if (cityName == null) {
       cityName = '北京'
