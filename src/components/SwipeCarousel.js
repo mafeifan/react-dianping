@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactSwipe from 'react-swipe';
 
-export default class SwipeCarouselComponent extends React.Component {
+export default class SwipeCarousel extends React.Component {
   constructor() {
     super()
     this.state = {

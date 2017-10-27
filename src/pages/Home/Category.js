@@ -1,5 +1,5 @@
 import React from 'react'
-import SwipeCarousel from '../../components/swipeCarousel';
+import SwipeCarousel from '../../components/SwipeCarousel';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
