@@ -34,7 +34,7 @@ class PrimaryLayout extends React.Component {
         <main>
           <div>{ this.state.initDone ? this.props.children : <div>加载中...</div>}</div>
         </main>
-        <footer><p>2017 copyright &copy;</p></footer>
+        <footer className="float-left"><p>2017 copyright &copy;</p></footer>
       </div>
     )
   }

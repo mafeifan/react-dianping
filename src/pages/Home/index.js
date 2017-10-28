@@ -1,7 +1,8 @@
 import React from 'react'
-import HomeHeader from '../../components/HomeHeader';
+import HomeHeader from '../../components/HomeHeader/index';
 import { connect } from 'react-redux'
-import Category from "./Category";
+import Category from "./category/index";
+import Ad from "./ad/index";
 
 class Home extends React.Component {
   render() {
@@ -9,6 +10,8 @@ class Home extends React.Component {
       <div>
         <HomeHeader cityName = { this.props.userInfo.cityName }></HomeHeader>
         <Category></Category>
+        <div style={{height: '15px'}}>{/* 分割线 */}</div>
+        <Ad></Ad>
       </div>
     )
   }
