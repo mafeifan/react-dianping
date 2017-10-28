@@ -22,7 +22,7 @@ class Ad extends React.Component {
   render() {
     return (
       <div id="home-sale">
-        <h2>超值特惠</h2>
+        <h2 className="home-list-title">超值特惠</h2>
         <div className="sale-container clear-fix">
           {this.state.items.map((item, index) => {
             return <div key={index} className="sale-item float-left">
