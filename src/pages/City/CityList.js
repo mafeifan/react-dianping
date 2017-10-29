@@ -22,8 +22,7 @@ export default class CityList extends React.Component {
   render() {
     return (
       <div className="city-list-container">
-        <h3>选择城市</h3>
-        <div>热门城市</div>
+        <h3>热门城市</h3>
         <ul className="clear-fix">
           {this.cityList().map((item, index) => {
             return <li key={index}><span onClick={this.clickHandle.bind(this, item)}>{item}</span></li>

@@ -1,11 +1,22 @@
 import React from 'react'
 
+import Header from "./Header";
 import CityList from "./CityList";
 import localStore from "../../util/localStore";
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import * as userInfoActions from '../../actions/userInfo'
+
+import './style.styl'
+
+const CurrentCity = ({cityName}) => {
+  return (
+    <div className="current-city">
+      <h2>{cityName}</h2>
+    </div>
+  )
+}
 
 class City extends React.Component {
   constructor({ match }) {
@@ -34,9 +45,8 @@ class City extends React.Component {
     const cityName = this.props.userInfo.cityName;
     return (
       <div>
-        <div className="current-city">
-          <h2>{cityName}</h2>
-        </div>
+        <Header title="选择城市"></Header>
+        <CurrentCity cityName={cityName} />
         <CityList changeCallback={this.changeCity.bind(this)}></CityList>
       </div>
     )
