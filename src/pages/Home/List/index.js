@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { getListData } from '../../../services/HomeService';
 import ListComponent from "../../../components/List/index";
+import LoadMoreComponent from "../../../components/LoadMore/index";
 
 class List extends React.Component {
   constructor() {
@@ -10,7 +11,7 @@ class List extends React.Component {
       data: [],
       hasMore: false,
       isLoadingMore: false,
-      page: 0
+      page: 1,
     }
   }
 
@@ -20,21 +21,27 @@ class List extends React.Component {
 
   loadFirstPageData() {
     const cityName = this.props.cityName
-    const result = getListData(cityName, 0)
+    const result = getListData(cityName, this.state.page)
     this.resultHandle(result)
   }
 
+  // 这个方法是供loadMore组件调用
   loadMoreData() {
-   this.setState({
-     isLoadingMore: true
-   })
+    this.setState({
+      isLoadingMore: true
+    })
 
-   const page = this.state.page
+    const cityName = this.props.cityName
+    const result = getListData(cityName, this.state.page)
 
-   this.setState({
-     page: page + 1,
-     isLoadingMore: false
-   })
+    setTimeout(() => {
+      this.resultHandle(result)
+      this.setState({
+        page: this.state.page++,
+        isLoadingMore: false
+      })
+    }, 1000)
+
  }
 
   resultHandle(result) {
@@ -51,6 +58,10 @@ class List extends React.Component {
       <div>
         <h2 className="home-list-title">猜你喜欢</h2>
         <ListComponent data={this.state.data}></ListComponent>
+        <LoadMoreComponent
+          isLoadingMore={this.state.isLoadingMore}
+          loadMoreFn={this.loadMoreData.bind(this)}>
+        </LoadMoreComponent>
       </div>
     )
   }
