@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import Home from '../pages/Home/'
 import List from '../pages/List/'
+import City from '../pages/City/'
 import Detail from '../pages/Detail/'
 import NoMatch from './404'
 
@@ -19,6 +20,7 @@ export class RouterMap extends React.Component {
           */ }
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route exact path="/city" component={City} />
             <Route exact path="/list" component={List} />
             <Route path="/detail/:id" component={Detail} />
             <Route component={NoMatch}/>
