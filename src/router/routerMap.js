@@ -4,6 +4,7 @@ import Home from '../pages/Home/'
 import List from '../pages/List/'
 import City from '../pages/City/'
 import Detail from '../pages/Detail/'
+import Search from '../pages/Search/'
 import NoMatch from './404'
 
 export class RouterMap extends React.Component {
@@ -20,8 +21,9 @@ export class RouterMap extends React.Component {
           */ }
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/city" component={City} />
-            <Route exact path="/list" component={List} />
+            <Route path="/city" component={City} />
+            <Route path="/list" component={List} />
+            <Route path="/search/:category/:keyword?" component={Search} />
             <Route path="/detail/:id" component={Detail} />
             <Route component={NoMatch}/>
           </Switch>
