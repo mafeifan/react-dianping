@@ -1,7 +1,7 @@
 import fetch from '../util/fetch'
 
 export function getAdData() {
-  return fetch.get('/api/homead')
+  return fetch.get(`/api/homead`)
 }
 
 export function getListData(city, page) {
