@@ -3,6 +3,7 @@ import Header from '$components/Header'
 
 import { getDetail } from '$services/DetailService';
 import './style.styl'
+import Comment from "./Comment/index";
 
 export default class Detail extends React.Component {
   constructor({ match }) {
@@ -33,6 +34,7 @@ export default class Detail extends React.Component {
         <Header title="商户详情" type="share"/>
         <Info content={this.state.shopDetail}></Info>
         <Desc content={this.state.shopDetail}></Desc>
+        <Comment></Comment>
       </div>
     )
   }
