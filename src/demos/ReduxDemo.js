@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as userInfoActions from "../actions/userInfo";
+import * as userInfoActions from "$redux/actions/userInfo";
 import { bindActionCreators } from 'redux';
 
 class C extends React.Component {

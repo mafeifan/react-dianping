@@ -6,7 +6,7 @@ import localStore from "../../util/localStore";
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
-import * as userInfoActions from '../../actions/userInfo'
+import * as userInfoActions from '$redux/actions/userInfo'
 
 import './style.styl'
 

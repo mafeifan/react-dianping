@@ -1,5 +1,5 @@
 import React from 'react'
-import HomeHeader from '../../components/HomeHeader/index';
+import HomeHeader from '$components/HomeHeader/index';
 import { connect } from 'react-redux'
 import Category from "./category/index";
 import Ad from "./ad/index";

@@ -1,4 +1,4 @@
-import { actionTypes } from '../mutation-types/userInfo';
+import { actionTypes } from '../actionTypes/userInfo';
 
 export function login(data) {
   return {

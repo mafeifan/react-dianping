@@ -1,10 +1,10 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
-import Home from '../pages/Home/'
-import List from '../pages/List/'
-import City from '../pages/City/'
-import Detail from '../pages/Detail/'
-import Search from '../pages/Search/'
+import Home from '$pages/Home/'
+import List from '$pages/List/'
+import City from '$pages/City/'
+import Detail from '$pages/Detail/'
+import Search from '$pages/Search/'
 import NoMatch from './404'
 
 export class RouterMap extends React.Component {

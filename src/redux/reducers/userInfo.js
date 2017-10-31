@@ -1,5 +1,5 @@
 
-import { actionTypes } from '../mutation-types/userInfo';
+import { actionTypes } from '../actionTypes/userInfo';
 
 const initialState = []
 export default function userInfo (state = initialState, action) {

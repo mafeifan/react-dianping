@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { getListData } from '../../../services/HomeService';
-import ListComponent from "../../../components/List/index";
-import LoadMoreComponent from "../../../components/LoadMore/index";
+import ListComponent from "$components/List/index";
+import LoadMoreComponent from "$components/LoadMore/index";
 
 class List extends React.Component {
   constructor() {
