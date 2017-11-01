@@ -1,12 +1,19 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import LoadMoreComponent from "$components/LoadMore/index";
-
 import './style.styl'
 
-
 export default class ListLoadingComponent extends React.Component {
-  constructor(props, context) {
-    super(props, context);
+  static defaultProps = {
+    url: ''
+  }
+
+  static propTypes = {
+    url: PropTypes.string
+  }
+
+  constructor(props) {
+    super(props);
     this.state = {
       data: [],
       hasMore: false,
@@ -28,8 +35,14 @@ export default class ListLoadingComponent extends React.Component {
     }).then(res => res.json())
   }
 
+  // 替换 {page} 为当前实际的请求地址
+  getRealUrl() {
+    return this.props.url.replace('{page}', this.state.page)
+  }
+
   loadFirstPageData() {
-    const result = this.fetch(this.props.url)
+    const url = this.getRealUrl()
+    const result = this.fetch(url)
     this.resultHandle(result)
   }
 
@@ -38,8 +51,10 @@ export default class ListLoadingComponent extends React.Component {
       isLoadingMore: true
     })
 
-    const result = this.fetch(this.props.url)
+    const url = this.getRealUrl()
+    const result = this.fetch(url)
 
+    // 本地模拟 延迟一秒处理数据
     setTimeout(() => {
       this.resultHandle(result)
       this.setState({
@@ -48,11 +63,12 @@ export default class ListLoadingComponent extends React.Component {
     }, 1000)
   }
 
+  // 从后台成功拿到数据后更新state
   resultHandle(result) {
     result.then(res => {
       this.setState({
         page: ++this.state.page,
-        // TODO 返回结果里必须带有这个字段
+        // TODO 验证返回结果里必须带有这个字段
         hasMore: res.hasMore,
         data: this.state.data.concat(res.data)
       })
@@ -64,9 +80,16 @@ export default class ListLoadingComponent extends React.Component {
   }
 
   render() {
+    const childrenWithProps = React.Children.map(this.props.children, child => {
+      console.log(child)
+      return React.cloneElement(child, {
+        data: this.state.data,
+      });
+    });
+
     return (
       <div className="List-loading-container">
-        {this.props.children}
+        {childrenWithProps}
         <LoadMoreComponent
           isLoadingMore={this.state.isLoadingMore}
           loadMoreFn={this.loadMoreData.bind(this)}>
