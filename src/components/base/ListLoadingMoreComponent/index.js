@@ -9,14 +9,14 @@ export default class ListLoadingComponent extends React.Component {
   }
 
   static propTypes = {
-    url: PropTypes.string
+    url: PropTypes.string.isRequired
   }
 
   constructor(props) {
     super(props);
     this.state = {
-      data: [],
-      hasMore: false,
+      data: [], // 后台返回结果中必须带有这个
+      hasMore: false, // 后台返回结果中必须带有这个
       isLoadingMore: false,
       page: 1,
     }
@@ -81,7 +81,6 @@ export default class ListLoadingComponent extends React.Component {
 
   render() {
     const childrenWithProps = React.Children.map(this.props.children, child => {
-      console.log(child)
       return React.cloneElement(child, {
         data: this.state.data,
       });

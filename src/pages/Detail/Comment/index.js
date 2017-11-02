@@ -1,5 +1,5 @@
 import React from 'react'
-import LoadLoadingComponent from '$components/base/ListLoadingComponent';
+import ListLoadingMoreComponent from '$components/base/ListLoadingMoreComponent';
 import { getComment } from '$services/DetailService';
 import CommentList from './CommentList'
 
@@ -10,7 +10,8 @@ export default class Comment extends React.Component {
     super();
     this.state = {
       match,
-      shopDetail: ''
+      shopDetail: '',
+      data: []
     }
   }
 
@@ -23,12 +24,13 @@ export default class Comment extends React.Component {
   }
 
   render() {
+    const url = `/api/detail/comment/{page}/${this.props.id}`
     return (
       <div className="detail-comment-subpage">
         <h2>用户点评</h2>
-        <LoadLoadingComponent url={`/api/detail/comment/{page}/7777`}>
+        <ListLoadingMoreComponent url={url}>
           <CommentList></CommentList>
-        </LoadLoadingComponent>
+        </ListLoadingMoreComponent>
       </div>
     )
   }

@@ -33,7 +33,7 @@ export default class Detail extends React.Component {
       <div>
         <Header title="商户详情" type="share"/>
         <Info content={this.state.shopDetail}></Info>
-        <Comment></Comment>
+        <Comment id={this.state.match.params.id}></Comment>
       </div>
     )
   }

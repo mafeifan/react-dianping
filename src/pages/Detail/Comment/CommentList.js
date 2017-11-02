@@ -1,4 +1,5 @@
 import React from 'react'
+import Star from '$components/Star/index'
 import './style.styl'
 
 export default (props) => {
@@ -21,6 +22,7 @@ const ListItem = (props) => {
         &nbsp;
         {item.username}
       </h3>
+      <Star star={item.star}></Star>
       <p>{item.comment}</p>
     </div>
   )
