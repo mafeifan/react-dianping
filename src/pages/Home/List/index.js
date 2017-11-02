@@ -16,6 +16,7 @@ class List extends React.Component {
   }
 
   componentDidMount() {
+    // 首次加载数据
     this.loadFirstPageData()
   }
 
@@ -37,7 +38,6 @@ class List extends React.Component {
     setTimeout(() => {
       this.resultHandle(result)
       this.setState({
-        page: this.state.page++,
         isLoadingMore: false
       })
     }, 1000)
@@ -47,6 +47,7 @@ class List extends React.Component {
   resultHandle(result) {
      result.then(res => {
        this.setState({
+         page: ++this.state.page,
          hasMore: res.hasMore,
          data: this.state.data.concat(res.data)
        })

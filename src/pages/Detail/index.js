@@ -1,7 +1,8 @@
 import React from 'react'
 import Header from '$components/Header'
-
-import { getDetail } from '$services/DetailService';
+import { getDetail } from '$services/DetailService'
+import Comment from './Comment/index'
+import Info from './Info'
 import './style.styl'
 
 export default class Detail extends React.Component {
@@ -29,33 +30,13 @@ export default class Detail extends React.Component {
 
   render() {
     return (
-      <div id="detail-info-container">
+      <div>
         <Header title="商户详情" type="share"/>
         <Info content={this.state.shopDetail}></Info>
-        <Desc content={this.state.shopDetail}></Desc>
+        <Comment></Comment>
       </div>
     )
   }
 }
 
 
-const Info = (props) => {
-  return props.content ?
-    <div className="info-container clear-fix">
-      <div className="info-img-container float-left">
-        <img src={props.content.img}/>
-      </div>
-      <div className="info-content">
-        <h1>{props.content.title}</h1>
-        <div className="star-container">
-          {/* 引用 Star 组件 */}
-          ***
-          <span className="price">￥{props.content.price}</span>
-        </div>
-        <p className="sub-title">{props.content.subTitle}</p>
-      </div>
-    </div>
-    :  ''
-}
-
-const Desc = props => props.content ? <p dangerouslySetInnerHTML={{ __html: props.content.desc }}></p> : ''
