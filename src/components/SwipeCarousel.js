@@ -9,11 +9,9 @@ export default class SwipeCarousel extends React.Component {
     }
   }
   render() {
+    // 默认配置
     const options = {
-      // auto: 2000,
-      // callback: index => this.setState({
-      //   index: index
-      // })
+      auto: 2000,
     }
     return (
       <ReactSwipe className="carousel" swipeOptions={Object.assign(options, this.props.swipeOptions)}>

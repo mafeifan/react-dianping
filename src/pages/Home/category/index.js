@@ -22,6 +22,7 @@ class Category extends React.Component {
         this.setState({index: index});
       }.bind(this)
     }
+    // 正常情况下，分类应该是从后台读取并显示的，这里偷懒写死了
     return (
       <div id="home-category">
         <SwipeCarousel swipeOptions={swipeOptions}>

@@ -1,7 +1,6 @@
 ## 说明
 
-根据教程[React高级实战 打造大众点评 WebApp](http://coding.imooc.com/class/99.html)，学习react。
-并对原来的代码进行自己的修改。
+根据教程[React高级实战 打造大众点评 WebApp](http://coding.imooc.com/class/99.html)，学习react。并根据自己的理解优化代码。
 
 ## 安装
 
@@ -11,8 +10,9 @@
 
 ## 未完成,开发中...
 
-
 ## TODO
 
-loading-spinner component
+* 补充组件树图，有自己解析并生成的工具吗
+* loading-spinner component
+* 使用flex布局 或者尝试grid布局
 

@@ -1,11 +1,12 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import ListComponent from '$components/List/index'
+import ListLoadingMoreComponent from '$components/base/ListLoadingMoreComponent'
+import { getSearchData } from '$services/SearchService'
 
-export default class SearchList extends React.Component {
-  constructor({ match }) {
+class SearchList extends React.Component {
+  constructor() {
     super();
-    this.state = {
-      match
-    }
   }
 
   clickHandle(item) {
@@ -13,12 +14,33 @@ export default class SearchList extends React.Component {
   }
 
   render() {
-    const { category, keyword } = this.state.match.params
-    console.log(category)
+    const cityName = this.props.userInfo.cityName
+    const category = this.props.category
+    const keywordStr = this.props.keyword ? '/' + this.props.keyword : ''
+    const url = `/api/search/{page}/${cityName}/${category}${keywordStr}`
+    console.log(url)
     return (
       <div>
-        <h3>List Page</h3>
+        <ListLoadingMoreComponent url={url}>
+          <ListComponent></ListComponent>
+        </ListLoadingMoreComponent>
       </div>
     )
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    userInfo: state.userInfo
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SearchList)

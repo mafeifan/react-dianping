@@ -1,4 +1,7 @@
 import React from 'react'
+import SearchHeader from './SearchHeader';
+import SearchList from './SearchList';
+import './style.styl'
 
 export default class Search extends React.Component {
   constructor({ match }) {
@@ -8,16 +11,14 @@ export default class Search extends React.Component {
     }
   }
 
-  clickHandle(item) {
-    // this.props.history.push('/detail/' + item)
-  }
+  //路由 /search/:category/:keyword?
 
   render() {
     const { category, keyword } = this.state.match.params
-    console.log(category)
     return (
       <div>
-        <h3>List Page</h3>
+        <SearchHeader></SearchHeader>
+        <SearchList category={category} keyword={keyword}></SearchList>
       </div>
     )
   }

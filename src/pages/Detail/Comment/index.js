@@ -6,24 +6,12 @@ import CommentList from './CommentList'
 import './style.styl'
 
 export default class Comment extends React.Component {
-  constructor({ match }) {
+  constructor() {
     super();
-    this.state = {
-      match,
-      shopDetail: '',
-      data: []
-    }
-  }
-
-  componentWillMount() {
-
-  }
-
-  componentDidMount() {
-
   }
 
   render() {
+    // TODO 写这不好
     const url = `/api/detail/comment/{page}/${this.props.id}`
     return (
       <div className="detail-comment-subpage">

@@ -1,14 +1,13 @@
-var Koa = require('koa');
-var Router = require('koa-router');
+const Koa = require('koa');
+const Router = require('koa-router');
 
-var app = new Koa();
-var router = new Router();
-var cors = require('koa-cors');
+const app = new Koa();
+const router = new Router();
+const cors = require('koa-cors');
 
 app.use(cors());
 
 router.get('/', function (ctx, next) {
-  console.log('say');
   ctx.body = 'hello koa !'
 });
 
@@ -20,17 +19,17 @@ router.get('/api', function (ctx, next) {
 router.prefix('/api');
 
 // 首页 —— 广告（超值特惠）
-var homeAdData = require('./home/ad.js')
+const homeAdData = require('./home/ad.js')
 router.get('/homead', function (ctx, next) {
-  console.log('首页 —— 广告（超值特惠）')
+  console.log('## 首页 —— 广告（超值特惠）')
   ctx.body = homeAdData
 });
 
 
 // 首页 —— 推荐列表（猜你喜欢）
-var homeListData = require('./home/list.js')
+const homeListData = require('./home/list.js')
 router.get('/homelist/:city/:page', function (ctx, next) {
-  console.log('首页 —— 推荐列表（猜你喜欢）')
+  console.log('##首页 —— 推荐列表（猜你喜欢）')
 
   // 参数
   const params = ctx.params
@@ -44,9 +43,9 @@ router.get('/homelist/:city/:page', function (ctx, next) {
 });
 
 // 搜索结果页 - 搜索结果 - 三个参数
-var searchListData = require('./search/list.js')
+let searchListData = require('./search/list.js')
 router.get('/search/:page/:city/:category/:keyword', function (ctx, next) {
-  console.log('搜索结果页 - 搜索结果')
+  console.log('## 搜索结果页 - 三个参数')
 
   // 参数
   const params = ctx.params
@@ -59,12 +58,17 @@ router.get('/search/:page/:city/:category/:keyword', function (ctx, next) {
   console.log('当前城市：' + paramsCity)
   console.log('当前类别：' + paramsCategory)
   console.log('关键字：' + paramsKeyword)
+  if (params.keyword) {
+    var result = searchListData.data.find(item => item.title.includes(params.keyword))
+    ctx.body = result
+   }else {
+    ctx.body = searchListData
+  }
 
-  ctx.body = searchListData
 })
 // 搜索结果页 - 搜索结果 - 两个参数
 router.get('/search/:page/:city/:category', function (ctx, next) {
-  console.log('搜索结果页 - 搜索结果')
+  console.log('## 搜索结果页 - 两个参数')
 
   // 参数
   const params = ctx.params
@@ -82,7 +86,7 @@ router.get('/search/:page/:city/:category', function (ctx, next) {
 // 详情页 - 商户信息
 const detailInfo = require('./detail/info.js')
 router.get('/detail/info/:id', function (ctx, next) {
-  console.log('详情页 - 商户信息')
+  console.log('## 详情页 - 商户信息')
 
   const params = ctx.params
   const id = params.id
@@ -94,7 +98,7 @@ router.get('/detail/info/:id', function (ctx, next) {
 // 详情页 - 用户评论
 const detailComment = require('./detail/comment.js')
 router.get('/detail/comment/:page/:id', function (ctx, next) {
-  console.log('详情页 - 用户点评')
+  console.log('## 详情页 - 用户点评')
 
   const params = ctx.params
   const page = params.page
@@ -109,7 +113,7 @@ router.get('/detail/comment/:page/:id', function (ctx, next) {
 // 订单列表
 const orderList = require('./orderlist/orderList.js')
 router.get('/orderlist/:username', function (ctx, next) {
-  console.log('订单列表')
+  console.log('## 订单列表')
 
   const params = ctx.params
   const username = params.username
@@ -120,7 +124,7 @@ router.get('/orderlist/:username', function (ctx, next) {
 
 // 提交评论
 router.post('/submitComment', function (ctx, next) {
-  console.log('提交评论')
+  console.log('## 提交评论')
   // 获取参数
   ctx.body = {
       errno: 0,
@@ -132,7 +136,8 @@ router.post('/submitComment', function (ctx, next) {
 //   ctx.body = 'Hello World';
 // });
 
-// 开始服务并生成路由
+// 开启 mock server
+// 测试的时候只开mock server，然后浏览器访问如： http://localhost:8000/api/homead
 app.use(router.routes())
    .use(router.allowedMethods());
 app.listen(8000);

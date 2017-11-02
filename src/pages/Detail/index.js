@@ -14,10 +14,6 @@ export default class Detail extends React.Component {
     }
   }
 
-  componentWillMount() {
-
-  }
-
   componentDidMount() {
     const shopId = this.state.match.params.id
     getDetail(shopId)
