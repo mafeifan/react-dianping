@@ -1,10 +1,10 @@
 import React from 'react'
 import HomeHeader from '$components/HomeHeader/index'
 import { connect } from 'react-redux'
-import Category from "./category/index"
+import Category from './category/index'
 import Ad from './ad/index'
 import List from './List/index'
-import fetch from "../../util/fetch";
+import fetch from '../../util/fetch'
 
 class Home extends React.Component {
   constructor() {
@@ -12,9 +12,9 @@ class Home extends React.Component {
   }
 
   componentWillMount() {
-    fetch.get(`/api/search/1/武汉/all/锅`).then(res => {
-      console.log(res)
-    })
+    // fetch.get(`/api/search/1/武汉/all/锅`).then(res => {
+    //   console.log(res)
+    // })
   }
 
   render() {

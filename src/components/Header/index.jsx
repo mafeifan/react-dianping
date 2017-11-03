@@ -4,7 +4,7 @@ import './style.styl'
 
 export default class Header extends React.Component {
   constructor(props, context) {
-    super(props, context);
+    super(props, context)
   }
 
   render() {
