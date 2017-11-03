@@ -59,8 +59,11 @@ router.get('/search/:page/:city/:category/:keyword', function (ctx, next) {
   console.log('当前类别：' + paramsCategory)
   console.log('关键字：' + paramsKeyword)
   if (params.keyword) {
-    var result = searchListData.data.find(item => item.title.includes(params.keyword))
-    ctx.body = result
+    var data = searchListData.data.find(item => item.title.includes(params.keyword))
+    ctx.body = {
+      hasMore: true,
+      data: [data]
+    }
    }else {
     ctx.body = searchListData
   }

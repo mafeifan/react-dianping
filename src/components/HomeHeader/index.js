@@ -1,7 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import SearchInput from '../SearchInput'
-import { Redirect } from 'react-router-dom'
 
 import './style.styl'
 
@@ -13,21 +12,15 @@ export default class HomeHeader extends React.Component {
       isToSearch: ''
     }
   }
+
   enterHandle(value) {
     this.setState({
       isToSearch: encodeURIComponent(value)
     })
-    // this.context.router.push('/search/all/' + encodeURIComponent(value))
-    // this.props.history.push('/search/all/' + encodeURIComponent(value))
   }
-  render() {
-    if (this.state.isToSearch) {
-      return (
-        <Redirect to={'/search/all/' + encodeURIComponent(this.state.isToSearch)}/>
-      )
-    }
 
-    return (
+  render() {
+    return this.state.isToSearch ? <Redirect to={'/search/all/' + encodeURIComponent(this.state.isToSearch)}/> : (
       <div id="home-header" className="clear-fix">
         <div className="home-header-left float-left">
           <Link to="/city">
