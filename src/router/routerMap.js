@@ -1,11 +1,12 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
-import Home from '$pages/Home/'
-import List from '$pages/List/'
-import City from '$pages/City/'
+import Home   from '$pages/Home/'
+import List   from '$pages/List/'
+import City   from '$pages/City/'
 import Detail from '$pages/Detail/'
 import Search from '$pages/Search/'
-import Demo from '$pages/Demo/'
+import Login  from '$pages/Login/'
+import Demo   from '$pages/Demo/'
 import NoMatch from './404'
 
 export class RouterMap extends React.Component {
@@ -22,6 +23,7 @@ export class RouterMap extends React.Component {
           */ }
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route path="/login/:refer?" component={Login} />
             <Route path="/city" component={City} />
             <Route path="/list" component={List} />
             <Route exact path="/demo" component={Demo} />
