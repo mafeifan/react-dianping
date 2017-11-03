@@ -22,7 +22,7 @@ class Login extends React.Component {
     const userInfo = this.props.userInfo
     if (userInfo.username) {
       // 已经登录，则跳转到用户主页
-      this.goUserPage();
+      this.goUserPage()
     } else {
       // 未登录，则验证结束
       this.setState({
@@ -49,9 +49,7 @@ class Login extends React.Component {
   }
 
   goUserPage() {
-    // 改为用户中心页面
-    this.props.history.push('/')
-    // hashHistory.push('/User')
+    this.props.history.push('/user')
   }
 
   render() {

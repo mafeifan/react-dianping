@@ -6,6 +6,7 @@ import City   from '$pages/City/'
 import Detail from '$pages/Detail/'
 import Search from '$pages/Search/'
 import Login  from '$pages/Login/'
+import UserCenter  from '$pages/UserCenter/'
 import Demo   from '$pages/Demo/'
 import NoMatch from './404'
 
@@ -25,6 +26,7 @@ export class RouterMap extends React.Component {
             <Route exact path="/" component={Home} />
             <Route path="/login/:refer?" component={Login} />
             <Route path="/city" component={City} />
+            <Route path="/user" component={UserCenter} />
             <Route path="/list" component={List} />
             <Route exact path="/demo" component={Demo} />
             <Route path="/search/:category/:keyword?" component={Search} />
