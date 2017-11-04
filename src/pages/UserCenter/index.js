@@ -17,7 +17,7 @@ class UserCenter extends React.Component {
   render() {
     return (
       <div>
-        <Header title="用户中心"/>
+        <Header title="用户中心" backUrl='/'/>
       </div>
     )
   }
