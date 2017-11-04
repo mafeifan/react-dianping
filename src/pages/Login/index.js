@@ -20,7 +20,7 @@ class Login extends React.Component {
 
   doCheck() {
     const userInfo = this.props.userInfo
-    if (userInfo.username) {
+    if (userInfo.userName) {
       // 已经登录，则跳转到用户主页
       this.goUserPage()
     } else {
@@ -31,12 +31,10 @@ class Login extends React.Component {
     }
   }
 
-  loginHandle(username) {
-    // 保存用户名
-    const actions = this.props.userInfoActions
-    let userInfo = this.props.userInfo
-    userInfo.username = username
-    actions.update(userInfo)
+  loginHandle(userName) {
+    const userInfo = this.props.userInfo
+    userInfo.userName = userName
+    this.props.userInfoActions.update(userInfo)
 
     const { refer } = this.props.match.params
     if (refer) {
@@ -73,6 +71,7 @@ function mapDispatchToProps(dispatch) {
     userInfoActions: bindActionCreators(userInfoActions, dispatch)
   }
 }
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps

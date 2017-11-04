@@ -41,12 +41,12 @@ class Detail extends React.Component {
 
   // 点击收藏按钮
   storeHandle() {
-    const id = this.state.shopDetail.id
+    const shopId = this.state.match.params.id
     const shopActions = this.props.shopActions
     if (this.state.isStore) {
-      shopActions.del({id: id})
+      shopActions.del({id: shopId})
     }else {
-      shopActions.add({id: id})
+      shopActions.add({id: shopId})
     }
     // 修改状态
     this.setState({

@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ReduxDemo from './demos/ReduxDemo';
 import { RouterMap } from './router/routerMap';
 import { Provider } from 'react-redux';
 import configStore from './redux/configStore';
@@ -15,6 +14,5 @@ ReactDOM.render(<Provider store={store}>
     <PrimaryLayout>
       <RouterMap />
     </PrimaryLayout>
-    { /* <ReduxDemo></ReduxDemo> */ }
   </div>
 </Provider>, document.getElementById('root'));
