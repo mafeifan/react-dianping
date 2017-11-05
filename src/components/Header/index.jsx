@@ -12,7 +12,7 @@ export default class Header extends React.Component {
   }
 
   render() {
-    return this.props.backUrl ? <Redirect to={this.state.backUrl} /> : (
+    return this.state.backUrl ? <Redirect to={this.state.backUrl} /> : (
       <div id="common-header">
         <span className="back-icon" onClick={this.clickHandle.bind(this)}>
             <i className="icon-chevron-left"></i>
