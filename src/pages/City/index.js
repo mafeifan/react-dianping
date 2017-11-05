@@ -1,9 +1,7 @@
 import React from 'react'
-
-import Header from "./Header";
-import CityList from "./CityList";
-import localStore from "../../util/localStore";
-
+import Header from './Header'
+import CityList from './CityList'
+import localStore from '../../util/localStore'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import * as userInfoActions from '$redux/actions/userInfo'
