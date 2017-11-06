@@ -9,8 +9,9 @@ class SearchList extends React.Component {
     super();
   }
 
-  clickHandle(item) {
-    // this.props.history.push('/detail/' + item)
+  componentDidUpdate(prevProps, prevState) {
+    console.log('-prevProps-')
+    console.log(prevProps)
   }
 
   render() {
@@ -18,7 +19,6 @@ class SearchList extends React.Component {
     const category = this.props.category
     const keywordStr = this.props.keyword ? '/' + this.props.keyword : ''
     const url = `/api/search/{page}/${cityName}/${category}${keywordStr}`
-    console.log(url)
     return (
       <div>
         <ListLoadingMoreComponent url={url}>

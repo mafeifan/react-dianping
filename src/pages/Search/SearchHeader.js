@@ -17,7 +17,7 @@ export default class SearchList extends React.Component {
   enterHandle(value) {
     if (value) {
       this.setState({
-        redirect: '/search/all/'
+        redirect: '/search/all/' + encodeURIComponent(value)
       })
     }else {
       this.setState({
@@ -35,7 +35,7 @@ export default class SearchList extends React.Component {
         <div className="input-container">
           <i className="icon-search"></i>
           &nbsp;
-          <SearchInput value={this.props.keyword || ''} enterHandle={this.enterHandle.bind(this)}/>
+          <SearchInput value={decodeURIComponent(this.props.keyword || '') } enterHandle={this.enterHandle.bind(this)}/>
         </div>
       </div>
     )

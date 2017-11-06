@@ -14,10 +14,15 @@ export default class Search extends React.Component {
   //路由 /search/:category/:keyword?
 
   render() {
-    const { category, keyword } = this.state.match.params
+    const { category, keyword } = this.props.match ? this.props.match.params : this.state.match.params;
+    // if (this.props.match) {
+    //   const { category, keyword } = this.props.match.params
+    // }else {
+    //   const { category, keyword } = this.state.match.params
+    // }
     return (
       <div>
-        <SearchHeader></SearchHeader>
+        <SearchHeader keyword={keyword}></SearchHeader>
         <SearchList category={category} keyword={keyword}></SearchList>
       </div>
     )
