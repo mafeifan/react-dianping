@@ -9,11 +9,6 @@ class SearchList extends React.Component {
     super();
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    console.log('-prevProps-')
-    console.log(prevProps)
-  }
-
   render() {
     const cityName = this.props.userInfo.cityName
     const category = this.props.category

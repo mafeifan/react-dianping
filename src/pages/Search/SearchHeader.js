@@ -10,11 +10,18 @@ export default class SearchList extends React.Component {
     }
   }
 
+  // shouldComponentUpdate(prevProps, prevState) {
+  // }
+
   clickHandle() {
     window.history.back()
   }
 
   enterHandle(value) {
+    // 避免渲染错误
+    if (value === this.props.keyword) {
+      return
+    }
     if (value) {
       this.setState({
         redirect: '/search/all/' + encodeURIComponent(value)
