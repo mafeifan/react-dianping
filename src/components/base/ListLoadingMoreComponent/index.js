@@ -75,11 +75,15 @@ export default class ListLoadingComponent extends React.Component {
     })
   }
 
-  clickHandle() {
-    this.props.loadMoreFn();
-  }
+
 
   render() {
+    if (this.state.data.length === 0 || (this.state.data.length === 1 && this.state.data[0] === null)) {
+      return (
+        <div>无数据</div>
+      )
+    }
+
     const childrenWithProps = React.Children.map(this.props.children, child => {
       return React.cloneElement(child, {
         data: this.state.data,

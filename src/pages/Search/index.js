@@ -22,8 +22,8 @@ export default class Search extends React.Component {
     // }
     return (
       <div>
-        <SearchHeader keyword={keyword}></SearchHeader>
-        <SearchList category={category} keyword={keyword}></SearchList>
+        <SearchHeader keyword={keyword} />
+        <SearchList keyword={keyword} category={category} />
       </div>
     )
   }

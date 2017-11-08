@@ -43,7 +43,7 @@ export default class Item extends React.Component {
       <div className="order-item-container">
         <div className="clear-fix">
           <div className="order-item-img float-left">
-            <img src={data.img}/>
+            <img src={data.img} alt={data.title}/>
           </div>
           <div className="order-item-comment float-right">
             {

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import SearchInput from '$components/SearchInput/index'
 
-export default class SearchList extends React.Component {
+export default class SearchHeader extends React.Component {
   constructor(props, content) {
     super(props, content);
     this.state = {
@@ -10,14 +10,15 @@ export default class SearchList extends React.Component {
     }
   }
 
-  // shouldComponentUpdate(prevProps, prevState) {
-  // }
-
   clickHandle() {
-    window.history.back()
+    // window.history.back()
+    window.location.href = '/'
   }
 
   enterHandle(value) {
+    this.setState({
+      redirect: false
+    })
     // 避免渲染错误
     if (value === this.props.keyword) {
       return
@@ -31,6 +32,18 @@ export default class SearchList extends React.Component {
         redirect: '/'
       })
     }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log('componentWillReceiveProps')
+    console.log(nextProps)
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('shouldComponentUpdate')
+    console.log(nextProps)
+    console.log(nextState)
+    return true;
   }
 
   render() {

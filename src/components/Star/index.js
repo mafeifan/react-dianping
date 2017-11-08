@@ -2,9 +2,6 @@ import React from 'react'
 import './style.styl'
 
 export default class Star extends React.Component {
-  constructor(props) {
-    super(props)
-  }
   render() {
     // 获取 star 数量，并取余5（最多5个star）
     let star = this.props.star || 0

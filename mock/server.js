@@ -3,9 +3,6 @@ const Router = require('koa-router');
 
 const app = new Koa();
 const router = new Router();
-const cors = require('koa-cors');
-
-app.use(cors());
 
 router.get('/', function (ctx, next) {
   ctx.body = 'hello koa !'
@@ -59,9 +56,9 @@ router.get('/search/:page/:city/:category/:keyword', function (ctx, next) {
   console.log('当前类别：' + paramsCategory)
   console.log('关键字：' + paramsKeyword)
   if (params.keyword) {
-    var data = searchListData.data.find(item => item.title.includes(params.keyword))
+    let data = searchListData.data.find(item => item.title.includes(params.keyword))
     ctx.body = {
-      hasMore: true,
+      hasMore: false,
       data: [data]
     }
    }else {
@@ -140,7 +137,7 @@ router.post('/submitComment', function (ctx, next) {
 // });
 
 // 开启 mock server
-// 测试的时候只开mock server，然后浏览器访问如： http://localhost:8000/api/homead
+// 测试api的时候只开mock server，然后浏览器访问如： http://localhost:8000/api/homead
 app.use(router.routes())
    .use(router.allowedMethods());
 app.listen(8000);

@@ -1,15 +1,10 @@
 import React from 'react'
 import ListLoadingMoreComponent from '$components/base/ListLoadingMoreComponent';
-import { getComment } from '$services/DetailService';
 import CommentList from './CommentList'
 
 import './style.styl'
 
 export default class Comment extends React.Component {
-  constructor() {
-    super();
-  }
-
   render() {
     // TODO 写这不好
     const url = `/api/detail/comment/{page}/${this.props.id}`
