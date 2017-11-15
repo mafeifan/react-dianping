@@ -32,6 +32,10 @@ class Login extends React.Component {
   }
 
   loginHandle(userName) {
+    if (userName.trim() === '') {
+      alert('手机号必填')
+      return
+    }
     const userInfo = this.props.userInfo
     userInfo.userName = userName
     this.props.userInfoActions.update(userInfo)

@@ -1,19 +1,7 @@
 import React from 'react'
-
 import './style.styl'
 
-
 export default class LoadMoreComponent extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-    this.state = {
-    }
-  }
-
-  componentDidMount() {
-    this.setState({
-    })
-  }
 
   clickHandle() {
     this.props.loadMoreFn();
