@@ -24,10 +24,13 @@ export default class SearchHeader extends React.Component {
       return
     }
     if (value) {
-      this.setState({
-        redirect: '/search/all/' + encodeURIComponent(value)
-      })
+      // TODO
+      window.location.href = '/search/all/' + encodeURIComponent(value)
+      // this.setState({
+      //   redirect: '/search/all/' + encodeURIComponent(value)
+      // })
     }else {
+      // 如果没有输入关键字
       this.setState({
         redirect: '/'
       })

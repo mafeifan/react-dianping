@@ -28,7 +28,12 @@ export default class SearchInput extends React.Component {
     if (e.keyCode !== 13) {
       return
     }
-    this.props.enterHandle(e.target.value)
+    // 加验证
+    if (e.target.value) {
+      this.props.enterHandle(e.target.value)
+    }else {
+      alert('请输入关键字')
+    }
   }
 
   render() {

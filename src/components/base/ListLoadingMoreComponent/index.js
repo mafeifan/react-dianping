@@ -75,8 +75,6 @@ export default class ListLoadingComponent extends React.Component {
     })
   }
 
-
-
   render() {
     if (this.state.data.length === 0 || (this.state.data.length === 1 && this.state.data[0] === null)) {
       return (
