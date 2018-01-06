@@ -1,14 +1,20 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import asyncComponent from './asyncComponent'
 import Home   from '$pages/Home/'
 import List   from '$pages/List/'
-import City   from '$pages/City/'
-import Detail from '$pages/Detail/'
-import Search from '$pages/Search/'
-import Login  from '$pages/Login/'
 import UserCenter  from '$pages/UserCenter/'
 import Demo   from '$pages/Demo/'
 import NoMatch from './404'
+
+function load(component) {
+  return import(`$pages/${component}/`)
+}
+
+const Login = asyncComponent(() => load('Login'))
+const City  = asyncComponent(() => load('City'))
+const Detail  = asyncComponent(() => load('Detail'))
+const Search  = asyncComponent(() => load('Search'))
 
 export class RouterMap extends React.Component {
   render() {
