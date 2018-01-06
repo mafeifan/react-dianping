@@ -38,7 +38,7 @@ export const HighOrderComponent = (WrapComponent, title) => {
       return(
         <div>
           <h3>{title}</h3>
-          <WrapComponent username={this.state.username}></WrapComponent>
+          <WrapComponent username={this.state.username} />
         </div>
       )
     }

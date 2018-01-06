@@ -12,7 +12,7 @@ export default class Comment extends React.Component {
       <div className="detail-comment-subpage">
         <h2>用户点评</h2>
         <ListLoadingMoreComponent url={url}>
-          <CommentList></CommentList>
+          <CommentList />
         </ListLoadingMoreComponent>
       </div>
     )

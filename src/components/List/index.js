@@ -18,7 +18,7 @@ export default class ListComponent extends React.Component {
     return (
       <div>
         {this.props.data.map((item, index) => {
-          return <div key={index}><Item data={item}></Item></div>
+          return <div key={index}><Item data={item} /></div>
         })}
       </div>
     )

@@ -16,7 +16,7 @@ class Category extends React.Component {
 
   render() {
     const swipeOptions = {
-      auto: 2500,
+      auto: 1500, // 切换间隔
       callback: function (index) {
         // 更新当前轮播图的index
         this.setState({index: index});
@@ -71,9 +71,9 @@ class Category extends React.Component {
         </SwipeCarousel>
         <div className="index-container">
           <ul>
-            <li className={this.state.index === 0 ? "selected" : ''}></li>
-            <li className={this.state.index === 1 ? "selected" : ''}></li>
-            <li className={this.state.index === 2 ? "selected" : ''}></li>
+            <li className={this.state.index === 0 ? 'selected' : ''}></li>
+            <li className={this.state.index === 1 ? 'selected' : ''}></li>
+            <li className={this.state.index === 2 ? 'selected' : ''}></li>
           </ul>
         </div>
       </div>

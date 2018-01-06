@@ -26,7 +26,7 @@ class Ad extends React.Component {
         <div className="sale-container clear-fix">
           {this.state.items.map((item, index) => {
             return <div key={index} className="sale-item float-left">
-              <a href="#"><img src={item.img} alt={item.title}/></a>
+              <a href="javascript:void(0);"><img src={item.img} alt={item.title}/></a>
             </div>
           })}
         </div>

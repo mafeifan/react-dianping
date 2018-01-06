@@ -37,10 +37,11 @@ class Login extends React.Component {
       return
     }
     const userInfo = this.props.userInfo
+    const { refer } = this.props.match.params
+
     userInfo.userName = userName
     this.props.userInfoActions.update(userInfo)
 
-    const { refer } = this.props.match.params
     if (refer) {
       // 跳转到指定的页面
       this.props.history.push(refer)
@@ -58,7 +59,7 @@ class Login extends React.Component {
     return (
       <div>
         <Header title="登录"/>
-        <LoginForm loginHandle={this.loginHandle.bind(this)}></LoginForm>
+        <LoginForm loginHandle={this.loginHandle.bind(this)} />
       </div>
     )
   }
