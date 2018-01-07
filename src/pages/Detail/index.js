@@ -58,13 +58,13 @@ class Detail extends React.Component {
     return (
       <div>
         <Header title="商户详情" type="share"/>
-        <Info content={this.state.shopDetail}></Info>
+        <Info content={this.state.shopDetail} />
         <Buy
           isStore={this.state.isStore}
           buyHandle={this.buyHandle.bind(this)}
           storeHandle={this.storeHandle.bind(this)}>
         </Buy>
-        <Comment id={this.state.match.params.id}></Comment>
+        <Comment id={this.state.match.params.id} />
       </div>
     )
   }

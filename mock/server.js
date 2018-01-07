@@ -85,14 +85,19 @@ router.get('/search/:page/:city/:category', function (ctx, next) {
 
 // 详情页 - 商户信息
 const detailInfo = require('./detail/info.js')
-router.get('/detail/info/:id', function (ctx, next) {
+router.get('/detail/info/:id', async (ctx, next) => {
   console.log('## 详情页 - 商户信息')
 
   const params = ctx.params
   const id = params.id
 
   console.log('商户id: ' + id)
-
+  // https://github.com/koajs/koa/issues/734
+  // 模拟加载中
+  await new Promise(resolve => {
+    setTimeout(resolve, 1000);
+  })
+  await next()
   ctx.body = detailInfo
 })
 // 详情页 - 用户评论

@@ -1,9 +1,9 @@
 import React from 'react'
 import localStore from '../../util/localStore'
-
-import { connect } from 'react-redux';
-import * as userInfoActions from "$redux/actions/userInfo";
-import { bindActionCreators } from 'redux';
+import LoadingBar from 'react-redux-loading-bar'
+import { connect } from 'react-redux'
+import * as userInfoActions from '$redux/actions/userInfo'
+import { bindActionCreators } from 'redux'
 
 class PrimaryLayout extends React.Component {
   constructor() {
@@ -30,9 +30,11 @@ class PrimaryLayout extends React.Component {
   render() {
     return (
       <div className="primary-layout">
-        <header/>
+        <header>
+          <LoadingBar style={{ backgroundColor: 'blue', height: '5px' }}/>
+        </header>
         <main>
-          <div>{ this.state.initDone ? this.props.children : <div>加载中...</div>}</div>
+          <div>{ this.state.initDone ? this.props.children : <p>加载中...</p>}</div>
         </main>
         <footer/>
       </div>
