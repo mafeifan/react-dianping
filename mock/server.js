@@ -4,11 +4,14 @@ const Router = require('koa-router');
 const app = new Koa();
 const router = new Router();
 
-router.get('/', function (ctx, next) {
+// 监听端口
+const PORT = 8000;
+
+router.get('/', (ctx, next) => {
   ctx.body = 'hello koa !'
 });
 
-router.get('/api', function (ctx, next) {
+router.get('/api', (ctx, next) => {
   ctx.body = 'test data'
 });
 
@@ -17,7 +20,7 @@ router.prefix('/api');
 
 // 首页 —— 广告（超值特惠）
 const homeAdData = require('./home/ad.js')
-router.get('/homead', function (ctx, next) {
+router.get('/homead', (ctx, next) => {
   console.log('## 首页 —— 广告（超值特惠）')
   ctx.body = homeAdData
 });
@@ -25,7 +28,7 @@ router.get('/homead', function (ctx, next) {
 
 // 首页 —— 推荐列表（猜你喜欢）
 const homeListData = require('./home/list.js')
-router.get('/homelist/:city/:page', function (ctx, next) {
+router.get('/homelist/:city/:page', (ctx, next) => {
   console.log('##首页 —— 推荐列表（猜你喜欢）')
 
   // 参数
@@ -41,7 +44,7 @@ router.get('/homelist/:city/:page', function (ctx, next) {
 
 // 搜索结果页 - 搜索结果 - 三个参数
 let searchListData = require('./search/list.js')
-router.get('/search/:page/:city/:category/:keyword', function (ctx, next) {
+router.get('/search/:page/:city/:category/:keyword', (ctx, next) => {
   console.log('## 搜索结果页 - 三个参数')
 
   // 参数
@@ -67,7 +70,7 @@ router.get('/search/:page/:city/:category/:keyword', function (ctx, next) {
 
 })
 // 搜索结果页 - 搜索结果 - 两个参数
-router.get('/search/:page/:city/:category', function (ctx, next) {
+router.get('/search/:page/:city/:category', (ctx, next) => {
   console.log('## 搜索结果页 - 两个参数')
 
   // 参数
@@ -102,7 +105,7 @@ router.get('/detail/info/:id', async (ctx, next) => {
 })
 // 详情页 - 用户评论
 const detailComment = require('./detail/comment.js')
-router.get('/detail/comment/:page/:id', function (ctx, next) {
+router.get('/detail/comment/:page/:id', (ctx, next) => {
   console.log('## 详情页 - 用户点评')
 
   const params = ctx.params
@@ -117,7 +120,7 @@ router.get('/detail/comment/:page/:id', function (ctx, next) {
 
 // 订单列表
 const orderList = require('./orderlist/orderList.js')
-router.get('/orderlist/:username', function (ctx, next) {
+router.get('/orderlist/:username', (ctx, next) => {
   console.log('## 订单列表')
 
   const params = ctx.params
@@ -128,7 +131,7 @@ router.get('/orderlist/:username', function (ctx, next) {
 })
 
 // 提交评论
-router.post('/submitComment', function (ctx, next) {
+router.post('/submitComment', (ctx, next) => {
   console.log('## 提交评论')
   // 获取参数
   ctx.body = {
@@ -137,12 +140,13 @@ router.post('/submitComment', function (ctx, next) {
   }
 })
 
-// app.use(ctx => {
-//   ctx.body = 'Hello World';
-// });
-
 // 开启 mock server
 // 测试api的时候只开mock server，然后浏览器访问如： http://localhost:8000/api/homead
 app.use(router.routes())
    .use(router.allowedMethods());
-app.listen(8000);
+app.listen(PORT);
+console.log(`backend server is started at port ${PORT}!`);
+
+app.on('error', err => {
+  console.error('server error', err)
+});

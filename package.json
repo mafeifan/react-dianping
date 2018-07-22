@@ -28,6 +28,7 @@
     "jest": "20.0.4",
     "koa": "^2.3.0",
     "koa-router": "^7.2.1",
+    "nodemon": "^1.18.3",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.6",
@@ -54,7 +55,7 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    "mock": "node ./mock/server.js"
+    "mock": "nodemon ./mock/server.js"
   },
   "proxy": "http://localhost:8000",
   "jest": {
