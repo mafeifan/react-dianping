@@ -15,10 +15,15 @@
 
 ## 安装
 
- 1. yarn 安装依赖
- 2. yarn mock 启动后台服务器，提供api功能
- 3. yarn start 启动前台程序
+ 1. yarn # 安装依赖
+ 2. yarn mock # 先启动后台服务器, 提供API，供模拟数据
+ 3. yarn start # 启动前台程序
 
  ![image](https://github.com/mafeifan/react-dianping/blob/master/screenshot/demo.gif?raw=true)
 
+## TODO
+
+* 补充组件树图，有自己解析并生成的工具吗
+* 封装loading-spinner等组件
+* 改造使用flex布局或者尝试grid布局
 
