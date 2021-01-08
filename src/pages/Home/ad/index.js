@@ -5,8 +5,8 @@ import { getAdData } from '../../../services/HomeService';
 import './style.styl'
 
 class Ad extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       items: []
     }
@@ -26,7 +26,7 @@ class Ad extends React.Component {
         <div className="sale-container clear-fix">
           {this.state.items.map((item, index) => {
             return <div key={index} className="sale-item float-left">
-              <a href="javascript:void(0);"><img src={item.img} alt={item.title}/></a>
+              <a href="#!"><img src={item.img} alt={item.title}/></a>
             </div>
           })}
         </div>

@@ -1,5 +1,4 @@
 import React from 'react'
-import { withHeader } from './HighOrderComponent'
 import child from './child'
 
 
@@ -17,8 +16,6 @@ class Demo extends React.Component {
   }
 }
 
-
-const EnhanceDemo = withHeader(Demo);
 
 // export default EnhanceDemo
 

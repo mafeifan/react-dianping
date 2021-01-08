@@ -37,11 +37,6 @@ export default class SearchHeader extends React.Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.log('componentWillReceiveProps')
-    console.log(nextProps)
-  }
-
   shouldComponentUpdate(nextProps, nextState) {
     console.log('shouldComponentUpdate')
     console.log(nextProps)

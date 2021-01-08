@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import asyncComponent from './asyncComponent'
 import Home   from '$pages/Home/'
 import List   from '$pages/List/'
@@ -21,13 +21,6 @@ export class RouterMap extends React.Component {
     return (
       <Router>
         <div>
-          { /*
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/list">List</Link></li>
-          </ul>
-          <hr/>
-          */ }
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/login/:refer?" component={Login} />

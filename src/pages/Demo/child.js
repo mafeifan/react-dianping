@@ -15,8 +15,8 @@ class MyContainer extends React.Component {
 
     // https://doc.react-china.org/docs/react-api.html#reactchildrentoarray
     // 使用他更好操作，比如切割，重新排序
-    const childs = React.Children.toArray(this.props.children);
-    childs.forEach(function(item){
+    const children = React.Children.toArray(this.props.children);
+    children.forEach(function(item){
       console.log(item)
     });
 

@@ -4,8 +4,8 @@
 
 // 将对象拼接成 key1=val1&key2=val2&key3=val3 的字符串形式
 function obj2params(obj) {
-  var result = '';
-  var item;
+  let result = '';
+  let item;
   for (item in obj) {
     result += '&' + item + '=' + encodeURIComponent(obj[item]);
   }

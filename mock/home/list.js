@@ -41,7 +41,7 @@ module.exports = {
       img: 'http://images2015.cnblogs.com/blog/138012/201610/138012-20161016201708124-1116595594.png',
       title: '麻辣串串烧',
       subTitle: '双人免费套餐等你抢购',
-      price: '0',
+      price: '30',
       distance: '160',
       number: '1426',
       id: Math.random().toString().slice(2)

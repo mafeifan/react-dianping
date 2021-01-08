@@ -6,9 +6,6 @@ import Ad from './ad/index'
 import List from './List/index'
 
 class Home extends React.Component {
-  componentWillMount() {
-  }
-
   render() {
     return (
       <div>

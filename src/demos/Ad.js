@@ -7,12 +7,9 @@ class Ad extends React.Component {
     this.state = {
     }
   }
-  //  Ajax 数据的拉取操作、一些定时器的启动
-  componentWillMount() {
-    console.log("component will mount");
-  }
 
   // 动画的启动
+  //  Ajax 数据的拉取操作、一些定时器的启动
   componentDidMount() {
     console.log("component did mount");
   }
@@ -22,7 +19,7 @@ class Ad extends React.Component {
   }
   render() {
     return (
-      <div></div>
+      <div />
     )
   }
 }

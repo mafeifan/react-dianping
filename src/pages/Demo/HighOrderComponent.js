@@ -27,7 +27,7 @@ export const HighOrderComponent = (WrapComponent, title) => {
         username: ''
       }
     }
-    componentWillMount() {
+    componentDidMount() {
       let username = localStorage.getItem('username');
       this.setState({
         username: username
