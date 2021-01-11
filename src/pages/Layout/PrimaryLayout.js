@@ -5,11 +5,17 @@ import { connect } from 'react-redux'
 import * as userInfoActions from '$redux/actions/userInfo'
 import { bindActionCreators } from 'redux'
 
+// 为当前的 theme 创建一个 context（“light”为默认值）。
+import {ThemeContext} from '../../context/theme.context';
+
 class PrimaryLayout extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
-      initDone: false
+      initDone: false,
+      themeConfig: {
+        color: 'red'
+      }
     }
   }
   componentDidMount() {
@@ -29,15 +35,17 @@ class PrimaryLayout extends React.Component {
   }
   render() {
     return (
-      <div className="primary-layout">
-        <header>
-          <LoadingBar style={{ backgroundColor: 'blue', height: '5px' }}/>
-        </header>
-        <main>
-          <div>{ this.state.initDone ? this.props.children : <p>加载中...</p>}</div>
-        </main>
-        <footer/>
-      </div>
+      <ThemeContext.Provider value={this.state.themeConfig.color}>
+        <div className="primary-layout">
+          <header>
+            <LoadingBar style={{ backgroundColor: 'blue', height: '5px' }}/>
+          </header>
+          <main>
+            <div>{ this.state.initDone ? this.props.children : <p>加载中...</p>}</div>
+          </main>
+          <footer/>
+        </div>
+      </ThemeContext.Provider>
     )
   }
 }
